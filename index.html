@@ -18,24 +18,40 @@
       --radius:18px;
       --max:1100px;
     }
+    html[data-theme="light"] {
+      --bg:#f0f2f5;
+      --card:#ffffff;
+      --text:#333333;
+      --muted:#666666;
+      --brand:#1e88e5;
+      --brand2:#42a5f5;
+      --line:rgba(0,0,0,.1);
+      --shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(1200px 800px at 10% 0%, rgba(98,230,169,.18), transparent 60%),
-        radial-gradient(900px 700px at 90% 10%, rgba(122,167,255,.18), transparent 55%),
-        linear-gradient(180deg, #070b14, var(--bg));
+      background: var(--bg);
       line-height:1.6;
+    }
+    html[data-theme="light"] body {
+        background: var(--bg);
+    }
+    html[data-theme="dark"] body {
+        background:
+            radial-gradient(1200px 800px at 10% 0%, rgba(98,230,169,.18), transparent 60%),
+            radial-gradient(900px 700px at 90% 10%, rgba(122,167,255,.18), transparent 55%),
+            linear-gradient(180deg, #070b14, var(--bg));
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
     .nav{
       position:sticky; top:0; z-index:20;
       backdrop-filter: blur(10px);
-      background: rgba(7,11,20,.55);
+      background: var(--bg); /* Use var(--bg) for nav background */
       border-bottom:1px solid var(--line);
     }
     .nav-inner{
@@ -129,7 +145,7 @@
     }
     .btn:hover{transform: translateY(-1px)}
     .card{
-      background: rgba(17,26,46,.75);
+      background: var(--card); /* Use var(--card) with opacity */
       border:1px solid var(--line);
       border-radius: var(--radius);
       padding:18px;
@@ -281,6 +297,9 @@
         <a href="#prepare">준비</a>
         <a href="#apply">참가</a>
         <a href="#faq">FAQ</a>
+        <button id="theme-toggle" class="btn ghost" aria-label="테마 전환" style="margin-left: 10px;">
+          모드
+        </button>
       </nav>
     </div>
   </header>
@@ -606,8 +625,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
