@@ -12,11 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentTheme = localStorage.getItem('theme');
   if (currentTheme) {
     htmlElement.setAttribute('data-theme', currentTheme);
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-    // If no theme is set, check system preference and set to light mode if preferred
-    htmlElement.setAttribute('data-theme', 'light');
   } else {
-    // Default to dark mode if no preference or system preference is dark
+    // Default to dark mode if no theme is set in localStorage
     htmlElement.setAttribute('data-theme', 'dark');
   }
 
