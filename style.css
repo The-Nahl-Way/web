@@ -1,1 +1,44 @@
-/* Add styles here */
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: rgba(255, 255, 255, 0.08);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(170, 180, 230, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #partnership .card {
+    padding: 14px;
+  }
+}
